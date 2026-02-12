@@ -1,0 +1,6 @@
+@UiFrameworkServer_HostAddress = http://localhost:5068
+
+GET {{UiFrameworkServer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

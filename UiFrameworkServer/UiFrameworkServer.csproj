@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="3.6.0" />
+    <PackageReference Include="newtonsoft.json" Version="13.0.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <Import Project="..\UiFrameworkServer.DataBases\UiFrameworkServer.DataBases.projitems" Label="Shared" />
+
+  <Import Project="..\UiFrameworkServer.Services\UiFrameworkServer.Services.projitems" Label="Shared" />
+
+  <Import Project="..\UiFrameworkServer.Models\UiFrameworkServer.Models.projitems" Label="Shared" />
+
+</Project>

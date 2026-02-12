@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiFrameworkServer", "UiFrameworkServer\UiFrameworkServer.csproj", "{990A7E01-B07F-4DD9-86DB-F880E8BB9091}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "UiFrameworkServer.DataBases", "UiFrameworkServer.DataBases\UiFrameworkServer.DataBases.shproj", "{1D3A9AA3-3B6A-484A-94CC-704F6D804026}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "UiFrameworkServer.Services", "UiFrameworkServer.Services\UiFrameworkServer.Services.shproj", "{47395B59-DD25-4E9F-BD21-23EE8F6ADC80}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "UiFrameworkServer.Models", "UiFrameworkServer.Models\UiFrameworkServer.Models.shproj", "{3DECE2A1-50B8-4B0D-87F2-95F50DC447D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{990A7E01-B07F-4DD9-86DB-F880E8BB9091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{990A7E01-B07F-4DD9-86DB-F880E8BB9091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{990A7E01-B07F-4DD9-86DB-F880E8BB9091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{990A7E01-B07F-4DD9-86DB-F880E8BB9091}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0FFB9AF7-4515-4CA0-834E-75391064F26E}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		UiFrameworkServer.DataBases\UiFrameworkServer.DataBases.projitems*{1d3a9aa3-3b6a-484a-94cc-704f6d804026}*SharedItemsImports = 13
+		UiFrameworkServer.Models\UiFrameworkServer.Models.projitems*{3dece2a1-50b8-4b0d-87f2-95f50dc447d7}*SharedItemsImports = 13
+		UiFrameworkServer.Services\UiFrameworkServer.Services.projitems*{47395b59-dd25-4e9f-bd21-23ee8f6adc80}*SharedItemsImports = 13
+		UiFrameworkServer.DataBases\UiFrameworkServer.DataBases.projitems*{990a7e01-b07f-4dd9-86db-f880e8bb9091}*SharedItemsImports = 5
+		UiFrameworkServer.Models\UiFrameworkServer.Models.projitems*{990a7e01-b07f-4dd9-86db-f880e8bb9091}*SharedItemsImports = 5
+		UiFrameworkServer.Services\UiFrameworkServer.Services.projitems*{990a7e01-b07f-4dd9-86db-f880e8bb9091}*SharedItemsImports = 5
+	EndGlobalSection
+EndGlobal

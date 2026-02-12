@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>1d3a9aa3-3b6a-484a-94cc-704f6d804026</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>UiFrameworkServer.DataBases</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)MongoContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums/UserType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils/MongoContextExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils/DictionaryRepresentationConvention.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils/QueryableExtensions.cs" />
+  </ItemGroup>
+</Project>
