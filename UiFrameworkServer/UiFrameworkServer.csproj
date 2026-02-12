@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
@@ -13,9 +12,20 @@
   </ItemGroup>
 
   <Import Project="..\UiFrameworkServer.DataBases\UiFrameworkServer.DataBases.projitems" Label="Shared" />
-
   <Import Project="..\UiFrameworkServer.Services\UiFrameworkServer.Services.projitems" Label="Shared" />
-
   <Import Project="..\UiFrameworkServer.Models\UiFrameworkServer.Models.projitems" Label="Shared" />
 
+  <Target Name="GenerateSwaggerJson" AfterTargets="Build">
+    <PropertyGroup>
+      <_SwaggerDocName Condition="'$(SwaggerDocName)' == ''">v1</_SwaggerDocName>
+      <_SwaggerDocName Condition="'$(SwaggerDocName)' != ''">$(SwaggerDocName)</_SwaggerDocName>
+      <_Rid Condition="'$(RuntimeIdentifier)' == ''">no-rid</_Rid>
+      <_Rid Condition="'$(RuntimeIdentifier)' != ''">$(RuntimeIdentifier)</_Rid>
+      <_SwaggerOutDir>$(MSBuildProjectDirectory)/</_SwaggerOutDir>
+      <_SwaggerOutFile>$(_SwaggerOutDir)\swagger.json</_SwaggerOutFile>
+      <_AssemblyPath>$(TargetDir)$(AssemblyName).dll</_AssemblyPath>
+    </PropertyGroup>
+    <MakeDir Directories="$(_SwaggerOutDir)" />
+    <Exec Command="dotnet tool run swagger tofile --output &quot;$(_SwaggerOutFile)&quot; &quot;$(_AssemblyPath)&quot; &quot;$(_SwaggerDocName)&quot;" />
+  </Target>
 </Project>
