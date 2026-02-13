@@ -37,4 +37,25 @@ jobs:
           repository: daechu5657/ui-framework-api-contract
           ref: main
           token: ${{ env.WORKFLOW }}
-          path: contract
+      - name: Compare and sync swagger.json
+        id: sync_swagger
+        run: |
+          SRC="server/UiFrameworkServer/swagger.json"
+          DST="api-contract/swagger.json"
+
+          if [ ! -f "$DST" ] || ! diff -q "$SRC" "$DST" > /dev/null; then
+            cp "$SRC" "$DST"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push if changed
+        if: steps.sync_swagger.outputs.changed == 'true'
+        run: |
+          cd api-contract
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add swagger.json
+          git commit -m "chore: sync swagger from ui-framework-server"
+          git push origin main
