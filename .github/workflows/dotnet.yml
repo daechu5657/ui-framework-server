@@ -23,15 +23,15 @@ jobs:
 
       - name: Restore dotnet tools
         working-directory: server
-        run: dotnet tool restore --tool-manifest ../dotnet-tools.json
+        run: dotnet tool restore
 
       - name: Restore dependencies
         working-directory: server
-        run: dotnet restore UiFrameworkServer/UiFrameworkServer.csproj
+        run: dotnet restore
 
       - name: Build
         working-directory: server
-        run: dotnet build UiFrameworkServer/UiFrameworkServer.csproj --no-restore
+        run: dotnet build --no-restore
 
       - name: Checkout api-contract repo
         uses: actions/checkout@v4
