@@ -32,7 +32,7 @@ jobs:
       - name: Checkout api-contract repo
         uses: actions/checkout@v4
         with:
-          repository: ui-framework-api-contract
+          repository: daechu5657/ui-framework-api-contract
           ref: main
           token: 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
           path: contract
