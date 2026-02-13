@@ -10,6 +10,7 @@ namespace UiFrameworkServer.Services.User
         public Databases.Models.User Single(string id)
         {
             var item = MongoContext.User.AsQueryable().SingleOrDefault(a => a.Id == id);
+
             if (item == null)
             {
                 throw new NotFoundException();
