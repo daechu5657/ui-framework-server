@@ -5,31 +5,33 @@ name: Sync API Contract (push -> api-contract repo)
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout server repo
-      uses: actions/checkout@v4
-    
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
-        
-    - name: Restore dependencies
-      run: dotnet restore
-      
-    - name: Build
-      run: dotnet build --no-restore
-      
-    - name: Checkout api-contract repo
-      uses: actions/checkout@v4
-      with:
+      - name: Checkout server repo
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore dotnet tools
+        run: dotnet tool restore
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore
+
+      - name: Checkout api-contract repo
+        uses: actions/checkout@v4
+        with:
           repository: ui-framework-api-contract
           ref: main
           token: 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
