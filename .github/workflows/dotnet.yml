@@ -1,4 +1,4 @@
-name: Sync API Contract (push -> api-contract repo)
+name: Sync Contract (push -> contract repo)
 
 on:
   push:
@@ -33,20 +33,20 @@ jobs:
         working-directory: server
         run: dotnet build --no-restore
 
-      - name: Checkout api-contract repo
+      - name: Checkout contract repo
         uses: actions/checkout@v4
         with:
-          repository: daechu5657/ui-framework-api-contract
+          repository: daechu5657/ui-framework-contract
           ref: main
           token: ${{ env.WORKFLOW }}
-          path: api-contract
+          path: contract
 
       - name: Compare and sync swagger.json
         id: sync_swagger
         working-directory: .
         run: |
           SRC="server/UiFrameworkServer/swagger.json"
-          DST="api-contract/swagger.json"
+          DST="contract/swagger.json"
 
           if [ ! -f "$SRC" ]; then
             echo "Source file not found: $SRC"
@@ -62,7 +62,7 @@ jobs:
 
       - name: Commit and push if changed
         if: steps.sync_swagger.outputs.changed == 'true'
-        working-directory: api-contract
+        working-directory: contract
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
