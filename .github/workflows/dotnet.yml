@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout server repo
         uses: actions/checkout@v4
+        with:
+          path: server
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -37,12 +39,19 @@ jobs:
           repository: daechu5657/ui-framework-api-contract
           ref: main
           token: ${{ env.WORKFLOW }}
+          path: api-contract
+
       - name: Compare and sync swagger.json
         id: sync_swagger
         run: |
           SRC="server/UiFrameworkServer/swagger.json"
           DST="api-contract/swagger.json"
-
+              
+          if [ ! -f "$SRC" ]; then
+            echo "Source file not found: $SRC"
+            exit 1
+          fi
+              
           if [ ! -f "$DST" ] || ! diff -q "$SRC" "$DST" > /dev/null; then
             cp "$SRC" "$DST"
             echo "changed=true" >> "$GITHUB_OUTPUT"
