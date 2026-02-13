@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      CONTRACT_REPO_TOKEN: ${{ secrets.WORKFLOW }}
+      WORKFLOW: ${{ secrets.WORKFLOW }}
 
     steps:
       - name: Checkout server repo
