@@ -10,6 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      CONTRACT_REPO_TOKEN: ${{ secrets.WORKFLOW }}
 
     steps:
       - name: Checkout server repo
@@ -34,5 +36,5 @@ jobs:
         with:
           repository: daechu5657/ui-framework-api-contract
           ref: main
-          token: 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
+          token: ${{ env.WORKFLOW }}
           path: contract
