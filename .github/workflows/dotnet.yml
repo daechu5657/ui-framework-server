@@ -1,6 +1,3 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
 name: Sync API Contract (push -> api-contract repo)
 
 on:
@@ -25,13 +22,16 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Restore dotnet tools
-        run: dotnet tool restore
+        working-directory: server
+        run: dotnet tool restore --tool-manifest ../dotnet-tools.json
 
       - name: Restore dependencies
-        run: dotnet restore
+        working-directory: server
+        run: dotnet restore UiFrameworkServer/UiFrameworkServer.csproj
 
       - name: Build
-        run: dotnet build --no-restore
+        working-directory: server
+        run: dotnet build UiFrameworkServer/UiFrameworkServer.csproj --no-restore
 
       - name: Checkout api-contract repo
         uses: actions/checkout@v4
@@ -43,15 +43,16 @@ jobs:
 
       - name: Compare and sync swagger.json
         id: sync_swagger
+        working-directory: .
         run: |
           SRC="server/UiFrameworkServer/swagger.json"
           DST="api-contract/swagger.json"
-              
+
           if [ ! -f "$SRC" ]; then
             echo "Source file not found: $SRC"
             exit 1
           fi
-              
+
           if [ ! -f "$DST" ] || ! diff -q "$SRC" "$DST" > /dev/null; then
             cp "$SRC" "$DST"
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -61,8 +62,8 @@ jobs:
 
       - name: Commit and push if changed
         if: steps.sync_swagger.outputs.changed == 'true'
+        working-directory: api-contract
         run: |
-          cd api-contract
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add swagger.json
