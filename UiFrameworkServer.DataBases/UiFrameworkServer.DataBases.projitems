@@ -10,8 +10,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)MongoContext.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enums/UserType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models/User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums/StyleValueUnit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums/StyleValueType.cs" />
+
+    <Compile Include="$(MSBuildThisFileDirectory)Models/Project.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/Revision.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/DesignSnapshot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/DesignTokenSnapshot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/DesignTokenValueSnapshot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifest.cs" />
+    
     <Compile Include="$(MSBuildThisFileDirectory)Utils/MongoContextExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils/DictionaryRepresentationConvention.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils/QueryableExtensions.cs" />

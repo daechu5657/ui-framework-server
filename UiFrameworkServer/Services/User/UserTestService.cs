@@ -1,42 +1,42 @@
-using MongoDB.Driver;
+// using MongoDB.Driver;
 
-namespace UiFrameworkServer.Services.User
-{
-    public class UserTestService : BaseDatabaseService
-    {
-        public UserTestService(IServiceProvider serviceProvider)
-            : base(serviceProvider) { }
+// namespace UiFrameworkServer.Services.User
+// {
+//     public class UserTestService : BaseDatabaseService
+//     {
+//         public UserTestService(IServiceProvider serviceProvider)
+//             : base(serviceProvider) { }
 
-        public Databases.Models.User Single(string id)
-        {
-            var item = MongoContext.User.AsQueryable().SingleOrDefault(a => a.Id == id);
+//         public Databases.Models.User Single(string id)
+//         {
+//             var item = MongoContext.User.AsQueryable().SingleOrDefault(a => a.Id == id);
 
-            if (item == null)
-            {
-                throw new NotFoundException();
-            }
+//             if (item == null)
+//             {
+//                 throw new NotFoundException();
+//             }
 
-            return item;
-        }
+//             return item;
+//         }
 
-        public Databases.Models.User Create(string name)
-        {
-            var item = MongoContext.User.AsQueryable().SingleOrDefault(a => a.Name == name);
-            if (item != null)
-            {
-                throw new ConflictException();
-            }
+//         public Databases.Models.User Create(string name)
+//         {
+//             var item = MongoContext.User.AsQueryable().SingleOrDefault(a => a.Name == name);
+//             if (item != null)
+//             {
+//                 throw new ConflictException();
+//             }
 
-            item = new Databases.Models.User
-            {
-                Name = name,
-                CreatedTime = DateTime.UtcNow,
-                UpdatedTime = DateTime.UtcNow,
-            };
+//             item = new Databases.Models.User
+//             {
+//                 Name = name,
+//                 CreatedTime = DateTime.UtcNow,
+//                 UpdatedTime = DateTime.UtcNow,
+//             };
 
-            MongoContext.InsertOne(item);
+//             MongoContext.InsertOne(item);
 
-            return Single(item.Id);
-        }
-    }
-}
+//             return Single(item.Id);
+//         }
+//     }
+// }
