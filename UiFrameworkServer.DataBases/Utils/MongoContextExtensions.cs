@@ -5,9 +5,8 @@ using MongoDB.Bson.Serialization.Options;
 using MongoDB.Driver;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using UiFrameworkServer.Databases.Utils;
 
-namespace UiFrameworkServer.Databases
+namespace UiFrameworkServer.Databases.Utils
 {
     public static class MongoContextExtensions
     {

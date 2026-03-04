@@ -1,7 +1,6 @@
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using UiFrameworkServer.Databases.Models;
 
 namespace UiFrameworkServer.Databases
 {
@@ -75,7 +74,7 @@ namespace UiFrameworkServer.Databases
         public IMongoDatabase Database =>
             Client.GetDatabase(Settings?.DatabaseName ?? nameof(UiFrameworkServer));
 
-        public IMongoCollection<User> User => Database.GetCollection<User>(nameof(User));
+        // public IMongoCollection<User> User => Database.GetCollection<User>(nameof(User));
 
         public MongoContext(IMongoClient client, IOptionsSnapshot<MongoContextSettings> options)
         {
@@ -252,3 +251,4 @@ namespace UiFrameworkServer.Databases
         // }
     }
 }
+

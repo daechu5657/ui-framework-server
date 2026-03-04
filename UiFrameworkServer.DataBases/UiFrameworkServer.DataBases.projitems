@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -6,19 +6,26 @@
     <SharedGUID>1d3a9aa3-3b6a-484a-94cc-704f6d804026</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>UiFrameworkServer.DataBases</Import_RootNamespace>
+    <Import_RootNamespace>UiFrameworkServer.Databases</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)MongoContext.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enums/StyleValueUnit.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enums/StyleValueType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums/Designs/StyleValueUnit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums/Designs/StyleValueType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums/ComponentManifests/ComponentManifestPropsKind.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums/ComponentManifests/ComponentManifestPropsStyleValueKind.cs" />
 
-    <Compile Include="$(MSBuildThisFileDirectory)Models/Project.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models/Revision.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models/DesignSnapshot.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models/DesignTokenSnapshot.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models/DesignTokenValueSnapshot.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/Projects/Project.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/Revisions/Revision.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/Designs/DesignSnapshot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/Designs/DesignTokenSnapshot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/Designs/DesignTokenValueSnapshot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestVariant.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestProps.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestPropsStyle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestPropsStyleValue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestPropsBehavior.cs" />
     
     <Compile Include="$(MSBuildThisFileDirectory)Utils/MongoContextExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils/DictionaryRepresentationConvention.cs" />

@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
 using UiFrameworkServer.Models;
 
-namespace UiFrameworkServer.Databases
+namespace UiFrameworkServer.Databases.Utils
 {
     public static class QueryableExtensions
     {

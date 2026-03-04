@@ -11,7 +11,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
-  <Import Project="..\UiFrameworkServer.DataBases\UiFrameworkServer.DataBases.projitems" Label="Shared" />
+  <Import Project="..\UiFrameworkServer.Databases\UiFrameworkServer.Databases.projitems" Label="Shared" />
   <Import Project="..\UiFrameworkServer.Services\UiFrameworkServer.Services.projitems" Label="Shared" />
   <Import Project="..\UiFrameworkServer.Models\UiFrameworkServer.Models.projitems" Label="Shared" />
 
