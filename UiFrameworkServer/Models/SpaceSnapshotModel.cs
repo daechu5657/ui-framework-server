@@ -8,7 +8,7 @@ namespace UiFrameworkServer.Models
         public string SpaceId { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public string Order { get; set; } = string.Empty;
-        public string[] Pages { get; set; } = [];
+        public List<string> Pages { get; set; } = [];
         public DateTime CreatedTime { get; set; }
         public DateTime? DeletedTime { get; set; }
     }

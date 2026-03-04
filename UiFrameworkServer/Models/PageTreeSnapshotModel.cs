@@ -11,7 +11,7 @@ namespace UiFrameworkServer.Models
         public string ComponentManifestId { get; set; } = string.Empty;
         public string VariantId { get; set; } = string.Empty;
         public string? Parent { get; set; } = string.Empty;
-        public string[] Children { get; set; } = [];
+        public List<string> Children { get; set; } = [];
 
         // public ComponentManifestProps[] PropsOverride { get; set; } = ComponentManifestProps[]
         public string Name { get; set; } = string.Empty;
