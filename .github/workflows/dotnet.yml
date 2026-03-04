@@ -41,31 +41,37 @@ jobs:
           token: ${{ env.WORKFLOW }}
           path: contract
 
-      - name: Compare and sync swagger.json
-        id: sync_swagger
-        working-directory: .
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate contract types
+        id: sync_contract
+        working-directory: contract
         run: |
-          SRC="server/UiFrameworkServer/swagger.json"
-          DST="contract/swagger.json"
+          SRC="../server/UiFrameworkServer/swagger.json"
 
           if [ ! -f "$SRC" ]; then
             echo "Source file not found: $SRC"
             exit 1
           fi
 
-          if [ ! -f "$DST" ] || ! diff -q "$SRC" "$DST" > /dev/null; then
-            cp "$SRC" "$DST"
+          npx openapi-typescript "$SRC" --enum -o src/schema.ts
+          node scripts/gen-schema-aliases.mjs "$SRC"
+
+          if [ -n "$(git status --porcelain src/schema.ts src/component-shared-models.ts)" ]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Commit and push if changed
-        if: steps.sync_swagger.outputs.changed == 'true'
+        if: steps.sync_contract.outputs.changed == 'true'
         working-directory: contract
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add swagger.json
-          git commit -m "chore: sync swagger from ui-framework-server"
+          git add src/schema.ts src/component-shared-models.ts
+          git commit -m "chore: sync contract types from ui-framework-server"
           git push origin main
