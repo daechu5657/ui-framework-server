@@ -8,7 +8,10 @@ builder.Services.AddMongoContext(builder.Configuration);
 builder.Services.AddCustomServices();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SchemaFilter<EnumNameSchemaFilter>();
+});
 
 var app = builder.Build();
 
