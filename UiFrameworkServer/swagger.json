@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/Schema/ComponentManifestDefinition": {
+    "/Public/Schema/ComponentManifestDefinition": {
       "get": {
         "tags": [
           "Public"
@@ -34,7 +34,7 @@
         }
       }
     },
-    "/Schema/ComponentManifestPropsKind": {
+    "/Public/Schema/ComponentManifestPropsKind": {
       "get": {
         "tags": [
           "Public"
@@ -63,7 +63,7 @@
         }
       }
     },
-    "/Schema/ComponentManifestPropsStyleDefinition": {
+    "/Public/Schema/ComponentManifestPropsStyleDefinition": {
       "get": {
         "tags": [
           "Public"
@@ -92,7 +92,7 @@
         }
       }
     },
-    "/Schema/ComponentManifestPropsBehaviorDefinition": {
+    "/Public/Schema/ComponentManifestPropsBehaviorDefinition": {
       "get": {
         "tags": [
           "Public"
@@ -121,7 +121,7 @@
         }
       }
     },
-    "/Schema/ComponentManifestPropsStyleValueKind": {
+    "/Public/Schema/ComponentManifestPropsStyleValueKind": {
       "get": {
         "tags": [
           "Public"
@@ -150,7 +150,7 @@
         }
       }
     },
-    "/Schema/StyleValueType": {
+    "/Public/Schema/StyleValueType": {
       "get": {
         "tags": [
           "Public"
@@ -179,7 +179,7 @@
         }
       }
     },
-    "/Schema/StyleValueUnit": {
+    "/Public/Schema/StyleValueUnit": {
       "get": {
         "tags": [
           "Public"

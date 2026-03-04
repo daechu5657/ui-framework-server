@@ -6,6 +6,7 @@ using UiFrameworkServer.Contract.Models.ComponentManifests;
 namespace UiFrameworkServer.Controllers
 {
     [ApiController]
+    [Route("[controller]")]
     public class PublicController : BaseController
     {
         public PublicController(IServiceProvider serviceProvider)
