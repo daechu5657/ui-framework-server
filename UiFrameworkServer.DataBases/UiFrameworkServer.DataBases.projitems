@@ -10,10 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)MongoContext.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enums/Designs/StyleValueUnit.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enums/Designs/StyleValueType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enums/ComponentManifests/ComponentManifestPropsKind.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enums/ComponentManifests/ComponentManifestPropsStyleValueKind.cs" />
 
     <Compile Include="$(MSBuildThisFileDirectory)Models/Projects/Project.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models/Revisions/Revision.cs" />

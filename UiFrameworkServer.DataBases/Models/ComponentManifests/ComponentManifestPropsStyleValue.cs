@@ -11,8 +11,8 @@ namespace UiFrameworkServer.Databases.Models.ComponentManifests
         [BsonRepresentation(BsonType.ObjectId)]
         public string? DesignTokenValueId { get; set; }
 
-        public required Enums.ComponentManifests.ComponentManifestPropsStyleValueKind Kind { get; set; }
-        public required Enums.Designs.StyleValueType ValueType { get; set; }
+        public required Contract.Enums.ComponentManifests.ComponentManifestPropsStyleValueKind Kind { get; set; }
+        public required Contract.Enums.Designs.StyleValueType ValueType { get; set; }
         public string? StringValue { get; set; }
         public int? NumberValue { get; set; }
     }

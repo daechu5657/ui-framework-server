@@ -1,4 +1,4 @@
-namespace UiFrameworkServer.Databases.Enums.Designs
+namespace UiFrameworkServer.Contract.Enums.Designs
 {
     public enum StyleValueUnit
     {

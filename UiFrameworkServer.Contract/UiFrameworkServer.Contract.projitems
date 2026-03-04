@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>4861aecb-83e8-48db-a040-9ccd5e17666f</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>UiFrameworkServer.Contract</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Enums/Designs/StyleValueUnit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums/Designs/StyleValueType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums/ComponentManifests/ComponentManifestPropsKind.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums/ComponentManifests/ComponentManifestPropsStyleValueKind.cs" />
+
+    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestDefinition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestPropsBehaviorDefinition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestPropsDefinition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestPropsStyleDefinition.cs" />
+  </ItemGroup>
+</Project>

@@ -9,20 +9,20 @@ namespace UiFrameworkServer.Databases.Models.ComponentManifests
     )]
     public abstract class ComponentManifestProps
     {
-        public abstract Enums.ComponentManifests.ComponentManifestPropsKind Kind { get; }
+        public abstract Contract.Enums.ComponentManifests.ComponentManifestPropsKind Kind { get; }
     }
 
     public sealed class ComponentManifestPropsStyleProperty : ComponentManifestProps
     {
-        public override Enums.ComponentManifests.ComponentManifestPropsKind Kind =>
-            Enums.ComponentManifests.ComponentManifestPropsKind.Style;
+        public override Contract.Enums.ComponentManifests.ComponentManifestPropsKind Kind =>
+            Contract.Enums.ComponentManifests.ComponentManifestPropsKind.Style;
         public List<ComponentManifestPropsStyle> Value { get; set; } = [];
     }
 
     public sealed class ComponentManifestPropsBehaviorProperty : ComponentManifestProps
     {
-        public override Enums.ComponentManifests.ComponentManifestPropsKind Kind =>
-            Enums.ComponentManifests.ComponentManifestPropsKind.Behavior;
+        public override Contract.Enums.ComponentManifests.ComponentManifestPropsKind Kind =>
+            Contract.Enums.ComponentManifests.ComponentManifestPropsKind.Behavior;
         public List<ComponentManifestPropsBehavior> Value { get; set; } = [];
     }
 }

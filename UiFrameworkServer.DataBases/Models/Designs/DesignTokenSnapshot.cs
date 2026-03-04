@@ -13,8 +13,8 @@ namespace UiFrameworkServer.Databases.Models.Designs
         public required string DesignSnapshotId { get; set; }
 
         public required string Name { get; set; }
-        public Enums.Designs.StyleValueType ValueType { get; set; }
-        public Enums.Designs.StyleValueUnit? Unit { get; set; }
+        public Contract.Enums.Designs.StyleValueType ValueType { get; set; }
+        public Contract.Enums.Designs.StyleValueUnit? Unit { get; set; }
         public DateTime CreatedTime { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedTime { get; set; } = DateTime.UtcNow;
         public DateTime? DeletedTime { get; set; }

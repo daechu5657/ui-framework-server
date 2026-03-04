@@ -1,4 +1,4 @@
-namespace UiFrameworkServer.Databases.Enums.ComponentManifests
+namespace UiFrameworkServer.Contract.Enums.ComponentManifests
 {
     public enum ComponentManifestPropsStyleValueKind
     {

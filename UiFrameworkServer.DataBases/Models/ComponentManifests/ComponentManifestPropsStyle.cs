@@ -11,8 +11,8 @@ namespace UiFrameworkServer.Databases.Models.ComponentManifests
         public required string Key { get; set; }
         public required string Name { get; set; }
         public required string CssProperty { get; set; }
-        public required Enums.Designs.StyleValueType ValueType { get; set; }
+        public required Contract.Enums.Designs.StyleValueType ValueType { get; set; }
         public required ComponentManifestPropsStyleValue Value { get; set; }
-        public Enums.Designs.StyleValueUnit? Unit { get; set; }
+        public Contract.Enums.Designs.StyleValueUnit? Unit { get; set; }
     }
 }

@@ -14,6 +14,7 @@
   <Import Project="..\UiFrameworkServer.Databases\UiFrameworkServer.Databases.projitems" Label="Shared" />
   <Import Project="..\UiFrameworkServer.Services\UiFrameworkServer.Services.projitems" Label="Shared" />
   <Import Project="..\UiFrameworkServer.Models\UiFrameworkServer.Models.projitems" Label="Shared" />
+  <Import Project="..\UiFrameworkServer.Contract\UiFrameworkServer.Contract.projitems" Label="Shared" />
 
   <Target Name="GenerateSwaggerJson" AfterTargets="Build">
     <PropertyGroup>
