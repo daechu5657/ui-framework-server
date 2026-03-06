@@ -1,4 +1,4 @@
-name: Sync Contract (push -> contract repo)
+name: Sync SDK (push -> sdk repo)
 
 on:
   push:
@@ -33,30 +33,30 @@ jobs:
         working-directory: server
         run: dotnet build --no-restore
 
-      - name: Checkout contract repo
+      - name: Checkout sdk repo
         uses: actions/checkout@v4
         with:
-          repository: daechu5657/ui-framework-contract
+          repository: daechu5657/ui-framework-sdk
           ref: main
           token: ${{ env.WORKFLOW }}
-          path: contract
+          path: sdk
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: yarn
-          cache-dependency-path: contract/yarn.lock
+          cache-dependency-path: sdk/yarn.lock
 
-      - name: Install contract dependencies
-        working-directory: contract
+      - name: Install sdk dependencies
+        working-directory: sdk
         run: |
           corepack enable
           yarn install --frozen-lockfile
 
-      - name: Generate contract types
-        id: sync_contract
-        working-directory: contract
+      - name: Generate sdk types
+        id: sync_sdk
+        working-directory: sdk
         run: |
           SRC="../server/UiFrameworkServer/swagger.json"
 
@@ -76,11 +76,11 @@ jobs:
           fi
 
       - name: Commit and push if changed
-        if: steps.sync_contract.outputs.changed == 'true'
-        working-directory: contract
+        if: steps.sync_sdk.outputs.changed == 'true'
+        working-directory: sdk
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add generated/schema.ts generated/contract.ts
-          git commit -m "chore: sync contract types from ui-framework-server"
+          git commit -m "chore: sync sdk types from ui-framework-server"
           git push origin main
