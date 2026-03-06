@@ -68,7 +68,7 @@ jobs:
           npx openapi-typescript "$SRC" --enum -o generated/schema.ts
           yarn extract 
 
-          if [ -n "$(git status --porcelain generated/schema.ts)" ]; then
+          if [ -n "$(git status --porcelain generated/schema.ts generated/contract.ts)" ]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "changed=false" >> "$GITHUB_OUTPUT"
@@ -80,6 +80,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add generated/schema.ts
+          git add generated/schema.ts generated/contract.ts
           git commit -m "chore: sync contract types from ui-framework-server"
           git push origin main
