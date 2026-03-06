@@ -231,7 +231,14 @@
           "baseProps": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ComponentManifestPropsDefinition"
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ComponentManifestPropsStylePropertyDefinition"
+                },
+                {
+                  "$ref": "#/components/schemas/ComponentManifestPropsBehaviorPropertyDefinition"
+                }
+              ]
             },
             "nullable": true
           },
@@ -247,7 +254,14 @@
             "additionalProperties": {
               "type": "array",
               "items": {
-                "$ref": "#/components/schemas/ComponentManifestPropsDefinition"
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ComponentManifestPropsStylePropertyDefinition"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ComponentManifestPropsBehaviorPropertyDefinition"
+                  }
+                ]
               }
             },
             "nullable": true
@@ -263,6 +277,27 @@
         "properties": {
           "key": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ComponentManifestPropsBehaviorPropertyDefinition": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComponentManifestPropsDefinition"
+          }
+        ],
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/ComponentManifestPropsKind"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComponentManifestPropsBehaviorDefinition"
+            },
             "nullable": true
           }
         },
@@ -315,6 +350,27 @@
           },
           "unit": {
             "$ref": "#/components/schemas/StyleValueUnit"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ComponentManifestPropsStylePropertyDefinition": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComponentManifestPropsDefinition"
+          }
+        ],
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/ComponentManifestPropsKind"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComponentManifestPropsStyleDefinition"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false

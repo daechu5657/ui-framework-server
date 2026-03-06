@@ -1,4 +1,5 @@
 using UiFrameworkServer.Databases.Utils;
+using UiFrameworkServer.Contract.Models.ComponentManifests;
 using UiFrameworkServer.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,16 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
     options.SchemaFilter<EnumNameSchemaFilter>();
+    options.UseOneOfForPolymorphism();
+    options.SelectSubTypesUsing(baseType =>
+        baseType == typeof(ComponentManifestPropsDefinition)
+            ?
+            [
+                typeof(ComponentManifestPropsStylePropertyDefinition),
+                typeof(ComponentManifestPropsBehaviorPropertyDefinition),
+            ]
+            : []
+    );
 });
 
 var app = builder.Build();

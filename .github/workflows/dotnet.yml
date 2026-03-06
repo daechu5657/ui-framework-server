@@ -45,6 +45,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: yarn
+          cache-dependency-path: contract/yarn.lock
+
+      - name: Install contract dependencies
+        working-directory: contract
+        run: |
+          corepack enable
+          yarn install --frozen-lockfile
 
       - name: Generate contract types
         id: sync_contract
@@ -57,10 +65,10 @@ jobs:
             exit 1
           fi
 
-          npx openapi-typescript "$SRC" --enum -o src/schema.ts
-          node scripts/gen-schema-aliases.mjs "$SRC"
+          npx openapi-typescript "$SRC" --enum -o generated/schema.ts
+          yarn extract 
 
-          if [ -n "$(git status --porcelain src/schema.ts src/component-shared-models.ts)" ]; then
+          if [ -n "$(git status --porcelain generated/schema.ts src/component-shared-models.ts)" ]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "changed=false" >> "$GITHUB_OUTPUT"
@@ -72,6 +80,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/schema.ts src/component-shared-models.ts
+          git add generated/schema.ts src/component-shared-models.ts
           git commit -m "chore: sync contract types from ui-framework-server"
           git push origin main
