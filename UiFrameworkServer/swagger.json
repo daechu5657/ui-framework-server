@@ -207,10 +207,273 @@
           }
         }
       }
+    },
+    "/Public/Schema/ComponentManifest": {
+      "get": {
+        "tags": [
+          "Public"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentManifest"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentManifest"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentManifest"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Public/Schema/ComponentManifestVariant": {
+      "get": {
+        "tags": [
+          "Public"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentManifestVariant"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentManifestVariant"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentManifestVariant"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Public/Schema/ComponentManifestProps": {
+      "get": {
+        "tags": [
+          "Public"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ComponentManifestPropsStyleProperty"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ComponentManifestPropsBehaviorProperty"
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ComponentManifestPropsStyleProperty"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ComponentManifestPropsBehaviorProperty"
+                    }
+                  ]
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ComponentManifestPropsStyleProperty"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ComponentManifestPropsBehaviorProperty"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Public/Schema/ComponentManifestPropsStyle": {
+      "get": {
+        "tags": [
+          "Public"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentManifestPropsStyle"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentManifestPropsStyle"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentManifestPropsStyle"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Public/Schema/ComponentManifestPropsStyleValue": {
+      "get": {
+        "tags": [
+          "Public"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentManifestPropsStyleValue"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentManifestPropsStyleValue"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentManifestPropsStyleValue"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Public/Schema/ComponentManifestPropsBehavior": {
+      "get": {
+        "tags": [
+          "Public"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentManifestPropsBehavior"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentManifestPropsBehavior"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComponentManifestPropsBehavior"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "ComponentManifest": {
+        "required": [
+          "baseProps",
+          "defaultVariantId",
+          "name",
+          "projectId",
+          "tagName",
+          "variantIds"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "projectId": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultVariantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "variantIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "baseProps": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ComponentManifestPropsStyleProperty"
+                },
+                {
+                  "$ref": "#/components/schemas/ComponentManifestPropsBehaviorProperty"
+                }
+              ]
+            },
+            "nullable": true
+          },
+          "tagName": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deletedTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ComponentManifestDefinition": {
         "required": [
           "baseProps",
@@ -269,6 +532,28 @@
         },
         "additionalProperties": false
       },
+      "ComponentManifestProps": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/ComponentManifestPropsKind"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ComponentManifestPropsBehavior": {
+        "required": [
+          "key"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ComponentManifestPropsBehaviorDefinition": {
         "required": [
           "key"
@@ -277,6 +562,27 @@
         "properties": {
           "key": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ComponentManifestPropsBehaviorProperty": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComponentManifestProps"
+          }
+        ],
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/ComponentManifestPropsKind"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComponentManifestPropsBehavior"
+            },
             "nullable": true
           }
         },
@@ -324,6 +630,48 @@
           "Behavior"
         ]
       },
+      "ComponentManifestPropsStyle": {
+        "required": [
+          "cssProperty",
+          "designTokenIds",
+          "key",
+          "name",
+          "value",
+          "valueType"
+        ],
+        "type": "object",
+        "properties": {
+          "designTokenIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "cssProperty": {
+            "type": "string",
+            "nullable": true
+          },
+          "valueType": {
+            "$ref": "#/components/schemas/StyleValueType"
+          },
+          "value": {
+            "$ref": "#/components/schemas/ComponentManifestPropsStyleValue"
+          },
+          "unit": {
+            "$ref": "#/components/schemas/StyleValueUnit"
+          }
+        },
+        "additionalProperties": false
+      },
       "ComponentManifestPropsStyleDefinition": {
         "required": [
           "cssProperty",
@@ -354,6 +702,27 @@
         },
         "additionalProperties": false
       },
+      "ComponentManifestPropsStyleProperty": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComponentManifestProps"
+          }
+        ],
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/ComponentManifestPropsKind"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComponentManifestPropsStyle"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ComponentManifestPropsStylePropertyDefinition": {
         "type": "object",
         "allOf": [
@@ -375,6 +744,39 @@
         },
         "additionalProperties": false
       },
+      "ComponentManifestPropsStyleValue": {
+        "required": [
+          "kind",
+          "valueType"
+        ],
+        "type": "object",
+        "properties": {
+          "designTokenId": {
+            "type": "string",
+            "nullable": true
+          },
+          "designTokenValueId": {
+            "type": "string",
+            "nullable": true
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ComponentManifestPropsStyleValueKind"
+          },
+          "valueType": {
+            "$ref": "#/components/schemas/StyleValueType"
+          },
+          "stringValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "numberValue": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ComponentManifestPropsStyleValueKind": {
         "enum": [
           0,
@@ -388,6 +790,70 @@
           "Literal",
           "DesignToken"
         ]
+      },
+      "ComponentManifestVariant": {
+        "required": [
+          "componentManifestId",
+          "key",
+          "name",
+          "projectId",
+          "propsOverride"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "projectId": {
+            "type": "string",
+            "nullable": true
+          },
+          "componentManifestId": {
+            "type": "string",
+            "nullable": true
+          },
+          "propsOverride": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ComponentManifestPropsStyleProperty"
+                },
+                {
+                  "$ref": "#/components/schemas/ComponentManifestPropsBehaviorProperty"
+                }
+              ]
+            },
+            "nullable": true
+          },
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deletedTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "StyleValueType": {
         "enum": [

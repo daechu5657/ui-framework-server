@@ -1,6 +1,6 @@
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace UiFrameworkServer.Databases.Models.ComponentManifests
+namespace UiFrameworkServer.Contract.Models.ComponentManifests
 {
     [BsonDiscriminator(RootClass = true)]
     [BsonKnownTypes(

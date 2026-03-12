@@ -1,5 +1,5 @@
-using UiFrameworkServer.Databases.Utils;
 using UiFrameworkServer.Contract.Models.ComponentManifests;
+using UiFrameworkServer.Databases.Utils;
 using UiFrameworkServer.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,7 +20,13 @@ builder.Services.AddSwaggerGen(options =>
                 typeof(ComponentManifestPropsStylePropertyDefinition),
                 typeof(ComponentManifestPropsBehaviorPropertyDefinition),
             ]
-            : []
+        : baseType == typeof(ComponentManifestProps)
+            ?
+            [
+                typeof(ComponentManifestPropsStyleProperty),
+                typeof(ComponentManifestPropsBehaviorProperty),
+            ]
+        : []
     );
 });
 

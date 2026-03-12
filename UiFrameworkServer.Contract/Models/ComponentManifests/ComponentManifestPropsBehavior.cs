@@ -1,4 +1,4 @@
-namespace UiFrameworkServer.Databases.Models.ComponentManifests
+namespace UiFrameworkServer.Contract.Models.ComponentManifests
 {
     public class ComponentManifestPropsBehavior
     {

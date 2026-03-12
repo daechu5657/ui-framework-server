@@ -94,5 +94,159 @@ namespace UiFrameworkServer.Controllers
         {
             return Ok(StyleValueUnit.Px);
         }
+
+        [HttpGet("Schema/ComponentManifest")]
+        public ActionResult<ComponentManifest> ComponentManifestSchema()
+        {
+            return Ok(
+                new ComponentManifest
+                {
+                    Id = "65f001122334455667788990",
+                    ProjectId = "65f001122334455667788991",
+                    DefaultVariantId = "65f001122334455667788992",
+                    VariantIds = ["65f001122334455667788992", "65f001122334455667788993"],
+                    BaseProps =
+                    [
+                        new ComponentManifestPropsStyleProperty
+                        {
+                            Value =
+                            [
+                                new ComponentManifestPropsStyle
+                                {
+                                    DesignTokenIds = ["65f0011223344556677889a1"],
+                                    Key = "backgroundColor",
+                                    Name = "Background Color",
+                                    CssProperty = "background-color",
+                                    ValueType = StyleValueType.String,
+                                    Value = new ComponentManifestPropsStyleValue
+                                    {
+                                        DesignTokenId = "65f0011223344556677889a1",
+                                        DesignTokenValueId = "65f0011223344556677889b1",
+                                        Kind = ComponentManifestPropsStyleValueKind.DesignToken,
+                                        ValueType = StyleValueType.String,
+                                        StringValue = "#111111",
+                                        NumberValue = null,
+                                    },
+                                    Unit = null,
+                                },
+                            ],
+                        },
+                        new ComponentManifestPropsBehaviorProperty
+                        {
+                            Value = [new ComponentManifestPropsBehavior { Key = "disabled" }],
+                        },
+                    ],
+                    TagName = "Button",
+                    Name = "Button",
+                    CreatedTime = DateTime.UtcNow,
+                    UpdatedTime = DateTime.UtcNow,
+                    DeletedTime = null,
+                }
+            );
+        }
+
+        [HttpGet("Schema/ComponentManifestVariant")]
+        public ActionResult<ComponentManifestVariant> ComponentManifestVariantSchema()
+        {
+            return Ok(
+                new ComponentManifestVariant
+                {
+                    Id = "65f001122334455667788992",
+                    ProjectId = "65f001122334455667788991",
+                    ComponentManifestId = "65f001122334455667788990",
+                    PropsOverride =
+                    [
+                        new ComponentManifestPropsBehaviorProperty
+                        {
+                            Value = [new ComponentManifestPropsBehavior { Key = "disabled" }],
+                        },
+                    ],
+                    Key = "default",
+                    Name = "Default",
+                    Order = 0,
+                    CreatedTime = DateTime.UtcNow,
+                    UpdatedTime = DateTime.UtcNow,
+                    DeletedTime = null,
+                }
+            );
+        }
+
+        [HttpGet("Schema/ComponentManifestProps")]
+        public ActionResult<ComponentManifestProps> ComponentManifestPropsSchema()
+        {
+            return Ok(
+                new ComponentManifestPropsStyleProperty
+                {
+                    Value =
+                    [
+                        new ComponentManifestPropsStyle
+                        {
+                            DesignTokenIds = ["65f0011223344556677889a1"],
+                            Key = "backgroundColor",
+                            Name = "Background Color",
+                            CssProperty = "background-color",
+                            ValueType = StyleValueType.String,
+                            Value = new ComponentManifestPropsStyleValue
+                            {
+                                DesignTokenId = "65f0011223344556677889a1",
+                                DesignTokenValueId = "65f0011223344556677889b1",
+                                Kind = ComponentManifestPropsStyleValueKind.DesignToken,
+                                ValueType = StyleValueType.String,
+                                StringValue = "#111111",
+                                NumberValue = null,
+                            },
+                            Unit = null,
+                        },
+                    ],
+                }
+            );
+        }
+
+        [HttpGet("Schema/ComponentManifestPropsStyle")]
+        public ActionResult<ComponentManifestPropsStyle> ComponentManifestPropsStyleSchema()
+        {
+            return Ok(
+                new ComponentManifestPropsStyle
+                {
+                    DesignTokenIds = ["65f0011223344556677889a1"],
+                    Key = "backgroundColor",
+                    Name = "Background Color",
+                    CssProperty = "background-color",
+                    ValueType = StyleValueType.String,
+                    Value = new ComponentManifestPropsStyleValue
+                    {
+                        DesignTokenId = "65f0011223344556677889a1",
+                        DesignTokenValueId = "65f0011223344556677889b1",
+                        Kind = ComponentManifestPropsStyleValueKind.DesignToken,
+                        ValueType = StyleValueType.String,
+                        StringValue = "#111111",
+                        NumberValue = null,
+                    },
+                    Unit = null,
+                }
+            );
+        }
+
+        [HttpGet("Schema/ComponentManifestPropsStyleValue")]
+        public ActionResult<ComponentManifestPropsStyleValue> ComponentManifestPropsStyleValueSchema()
+        {
+            return Ok(
+                new ComponentManifestPropsStyleValue
+                {
+                    DesignTokenId = "65f0011223344556677889a1",
+                    DesignTokenValueId = "65f0011223344556677889b1",
+                    Kind = ComponentManifestPropsStyleValueKind.DesignToken,
+                    ValueType = StyleValueType.String,
+                    StringValue = "#111111",
+                    NumberValue = null,
+                }
+            );
+        }
+
+        [HttpGet("Schema/ComponentManifestPropsBehavior")]
+        public ActionResult<ComponentManifestPropsBehavior> ComponentManifestPropsBehaviorSchema()
+        {
+            return Ok(new ComponentManifestPropsBehavior { Key = "disabled" });
+        }
     }
 }

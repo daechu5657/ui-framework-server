@@ -1,7 +1,7 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace UiFrameworkServer.Databases.Models.ComponentManifests
+namespace UiFrameworkServer.Contract.Models.ComponentManifests
 {
     public class ComponentManifestVariant
     {
