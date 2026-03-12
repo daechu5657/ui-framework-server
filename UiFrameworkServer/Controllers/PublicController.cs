@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using UiFrameworkServer.Contract.Enums.ComponentManifests;
 using UiFrameworkServer.Contract.Enums.Designs;
 using UiFrameworkServer.Contract.Models.ComponentManifests;
+using UiFrameworkServer.Models;
 
 namespace UiFrameworkServer.Controllers
 {
@@ -247,6 +248,48 @@ namespace UiFrameworkServer.Controllers
         public ActionResult<ComponentManifestPropsBehavior> ComponentManifestPropsBehaviorSchema()
         {
             return Ok(new ComponentManifestPropsBehavior { Key = "disabled" });
+        }
+
+        [HttpGet("Schema/PageModel")]
+        public ActionResult<PageModel> PageModelSchema()
+        {
+            return Ok(
+                new PageModel
+                {
+                    Id = "65f001122334455667788aa1",
+                    ProjectId = "65f001122334455667788991",
+                    SpaceId = "65f001122334455667788aa2",
+                    RootPageTreeId = "65f001122334455667788aa3",
+                    Name = "Home",
+                    Order = 0,
+                    CreatedTime = DateTime.UtcNow,
+                    UpdatedTime = DateTime.UtcNow,
+                    DeletedTime = null,
+                }
+            );
+        }
+
+        [HttpGet("Schema/PageTreeModel")]
+        public ActionResult<PageTreeModel> PageTreeModelSchema()
+        {
+            return Ok(
+                new PageTreeModel
+                {
+                    Id = "65f001122334455667788aa3",
+                    ProjectId = "65f001122334455667788991",
+                    PageId = "65f001122334455667788aa1",
+                    ComponentManifestId = "65f001122334455667788990",
+                    VariantId = "65f001122334455667788992",
+                    Name = "Button",
+                    Order = 0,
+                    Parent = null,
+                    Children = ["65f001122334455667788aa4"],
+                    PropsOverride = [new ComponentManifestPropsBehaviorProperty { Value = [] }],
+                    CreatedTime = DateTime.UtcNow,
+                    UpdatedTime = DateTime.UtcNow,
+                    DeletedTime = null,
+                }
+            );
         }
     }
 }

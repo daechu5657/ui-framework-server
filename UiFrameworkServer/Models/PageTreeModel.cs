@@ -1,3 +1,5 @@
+using UiFrameworkServer.Contract.Models.ComponentManifests;
+
 namespace UiFrameworkServer.Models
 {
     public class PageTreeModel
@@ -11,9 +13,7 @@ namespace UiFrameworkServer.Models
         public int Order { get; set; } = 0;
         public string? Parent { get; set; } = string.Empty;
         public List<string> Children { get; set; } = [];
-
-        // public ComponentManifestProps[] PropsOverride { get; set; } = ComponentManifestProps[]
-        //
+        public ComponentManifestProps[] PropsOverride { get; set; } = [];
         public DateTime CreatedTime { get; set; }
         public DateTime UpdatedTime { get; set; }
         public DateTime? DeletedTime { get; set; }
