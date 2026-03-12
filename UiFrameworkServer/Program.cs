@@ -12,7 +12,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
     options.SchemaFilter<EnumNameSchemaFilter>();
-    options.SchemaFilter<ComponentManifestPolymorphismSchemaFilter>();
     options.UseOneOfForPolymorphism();
     options.SelectSubTypesUsing(baseType =>
         baseType == typeof(ComponentManifestPropsDefinition)
