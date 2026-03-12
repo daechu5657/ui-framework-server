@@ -80,7 +80,7 @@ jobs:
           echo "schema_path=$SCHEMA_PATH" >> "$GITHUB_OUTPUT"
           echo "contract_path=$CONTRACT_PATH" >> "$GITHUB_OUTPUT"
 
-          pnpm exec openapi-typescript "$SRC" --enum -o "$SCHEMA_PATH"
+          pnpm dlx openapi-typescript "$SRC" --enum -o "$SCHEMA_PATH"
           pnpm run extract
           pnpm run prettier
 
