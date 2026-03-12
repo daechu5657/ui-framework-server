@@ -18,5 +18,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestPropsBehaviorDefinition.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestPropsDefinition.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestPropsStyleDefinition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestVariant.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestProps.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestPropsStyle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestPropsStyleValue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestPropsBehavior.cs" />
   </ItemGroup>
 </Project>

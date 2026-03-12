@@ -16,12 +16,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models/Designs/DesignSnapshot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models/Designs/DesignTokenSnapshot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models/Designs/DesignTokenValueSnapshot.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifest.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestVariant.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestProps.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestPropsStyle.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestPropsStyleValue.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models/ComponentManifests/ComponentManifestPropsBehavior.cs" />
     
     <Compile Include="$(MSBuildThisFileDirectory)Utils/MongoContextExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils/DictionaryRepresentationConvention.cs" />
